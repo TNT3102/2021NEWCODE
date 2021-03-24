@@ -100,6 +100,7 @@ SpeedControllerGroup rightside = new SpeedControllerGroup (rightfront, rightrear
 
   @Override
   public void teleopInit() {
+
     // This makes sure that the autonomous stops running when
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
@@ -113,7 +114,14 @@ SpeedControllerGroup rightside = new SpeedControllerGroup (rightfront, rightrear
   @Override
   public void teleopPeriodic () {
 
-
+    /***************************
+    Added by McT for troubleshooting
+    The following will show up in the console of the driver station.  
+    Refer to https://docs.wpilib.org/en/stable/docs/software/driverstation/driver-station.html#messages-tab
+    to learn how to access the console so you can see.  This message should display multiple times and the value should change if the codriver presses button 2.
+    *****************************/
+    System.out.println("In TeleopInit Robot.java, status of codriverstick.getRawButton(2) is " + codriverstick.getRawButton(2));
+    end McT troubleshooting**********************************************/
     if(codriverstick.getRawButtonReleased(2) && trigger ==true){
       trigger = false;
     }
